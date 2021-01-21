@@ -1,0 +1,19 @@
+{
+  "name": "readme-generator",
+  "version": "1.0.0",
+  "description": "this is the readme generator app package.json file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holahu9/readme-generator.git"
+  },
+  "author": "Duc Dinh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/holahu9/readme-generator/issues"
+  },
+  "homepage": "https://github.com/holahu9/readme-generator#readme"
+}
