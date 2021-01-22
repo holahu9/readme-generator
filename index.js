@@ -102,21 +102,26 @@ const template = `
 ## Description
 ${description}
 ## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
-* [License](#license)
-* [Contributions](#contributions)
-* [Tests](#tests)
-* [Questions](#questions)
+* [installation](#installation)
+* [usage](#usage)
+* [license](#license)
+* [tests](#tests)
+* [questions](#questions)
+
 ## Installation
 ${installation}
+
 ## Usage
 To execute this application, perform the following command:
 **${usage}**
+
 ## License
 ${license}
+
 ## Tests
 ${tests}
+
+
 ## Questions
 If there are any questions about this **${title}** application, then please feel
  free to contact me at either my GitHub profile
