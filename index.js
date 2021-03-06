@@ -1,161 +1,76 @@
-// node modules
+// TODO: Include packages needed for this application.
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
-
-// inquire to generate questions
-inquirer.prompt(
-    [
-        {
-
-            type:'input',
-            message: 'what is your project title: ',
-            name: 'title',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-
-
-        },
-
-        {
-            type: 'input',
-            message: 'Enter Description of project: ',
-            name: 'description',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-        },
-        {
-            type: 'input',
-            message: 'Enter the installation instructions: ',
-            name: 'installation',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-        },
-        {
-            type: 'input',
-            message: 'How do you use the app: ',
-            name: 'usage',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-        },
- 
-        {
-            type: 'input',
-            message: 'How do you run tests on this project: ',
-            name: 'tests',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-        },
-        {
-            type: 'list',
-            message: 'What type of license would you like: ',
-            choices: ['MIT License', 'Apache License', 'GNU License', 'GPL License', 'N/A'],
-            name: 'license',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-        },
-        {
-            type: 'input',
-            message: 'Enter GitHub username: ',
-            name: 'githubuser',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-        },
-        {
-            type: 'input',
-            message: 'Enter email address: ',
-            name: 'email',
-
-            // validate the inputs
-            validate:(value) =>{if(value){return true} else {return 'Please enter a value'}},
-
-        }
-    ]
-).then(({
-    title,
-    description,
-    installation,
-    usage,
-    tests,
-    license,
-    githubuser,
-    email
-})=>{
-    /// template
-const template = ` 
-# ${title}
-
-## Description
-${description}
-## Table of Contents
-* [installation](#installation)
-* [usage](#usage)
-* [license](#license)
-* [tests](#tests)
-* [questions](#questions)
-
-## Installation
-${installation}
-
-## Usage
-To execute this application, perform the following command:
-**${usage}**
-
-## License
-${license}
-
-## Tests
-${tests}
-
-
-## Questions
-If there are any questions about this **${title}** application, then please feel
- free to contact me at either my GitHub profile
-**https://github.com/${githubuser}**
-or you can contact me at the following email address:
-**${email}**
-`;
+// TODO: Create an array of questions for user input
+const questions =
+([
+    {
+      type: 'input',
+      message: 'Name of application: ',
+      name: 'title',
+    },
+    {
+      type: 'input',
+      message: 'Description of application: ',
+      name: 'description',
+    },
+    {
+      type: 'input',
+      message: 'Steps required to install application: ',
+      name: 'installation',
+    },
+    {
+      type: 'input',
+      message: 'Instructions and examples for use: ',
+      name: 'usage',
+    },
+    {
+      type: 'list',
+      message: 'Select a license for application: ',
+      name: 'license',
+      choices: ['Apache 2.0', 'Cocoapods', 'GNU GPL v3', 'Eclipse Public License 1.0', 'MIT', 'Mozilla', 'Perl']
+    },
+    {
+      type: 'input',
+      message: 'Output link: ',
+      name: 'output',
+    },
     
- // function to create readme using fs module   
-    
-    createNewFile(title, template);
+    {
+      type: 'input',
+      message: 'GitHub username: ',
+      name: 'username',
+    },
+    {
+      type: 'input',
+      message: 'Email address: ',
+      name: 'email',
+    },
+  ])
 
-    
-}
 
-
-);
-
-// create a new file
-
-function createNewFile(fileName, data){
-
-fs.writeFile(`./${fileName.toLowerCase().split('').join('')}.md`,data,(err)=>{
-
-    if(err){
-        console.log(err)
-    }
-    console.log("The readme file has been generated");
-})
-
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(fileName, data);
 
 }
 
+// TODO: Create a function to initialize app
+function init() {
+  console.log('Enter your responses to the following questions and your README will be generated.', '\n');
 
+  inquirer.prompt(questions)
+  .then((response) =>
 
+    writeToFile(response.title + ".md", generateMarkdown({...response}))
+      ? console.log('\n\n** README not created **')
+      : console.log('\n\n** README created! **')
+  );
+}
+
+// Function call to initialize app
+init();
 
 
