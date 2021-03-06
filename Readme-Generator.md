@@ -1,4 +1,4 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)]
+[![License: Eclipse Public License 1.0](https://img.shields.io/badge/License-EPL%201.0-red.svg)]
 
 
   # readme-generator 
@@ -6,7 +6,7 @@
 
   ## Description 
 
-Generate a readme file 
+generate readme file 
 
 
   ## Table of Contents
@@ -21,7 +21,7 @@ Generate a readme file
 
   ## Installation 
 
-install nodejs npm inquire 
+install nodejs then npm inquire 
 
 
   ## Usage 
@@ -31,12 +31,12 @@ type node index.js from the terminal
 ## License 
 
 
-  The application is covered under the license: [License: MIT](https://opensource.org/licenses/MIT). Click the name of the license for more information.
+  The application is covered under the license: [License: Eclipse Public License 1.0](https://opensource.org/licenses/EPL-1.0). Click the name of the license for more information.
 
-## Contributing 
+## output 
 
 
-  
+  https://drive.google.com/file/d/1nYKtv9X07dRePenqmbM-MR5Rcw3FHE-c/view?usp=sharing
 
 ## Tests 
 

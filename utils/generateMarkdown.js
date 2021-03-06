@@ -90,7 +90,7 @@ function generateMarkdown(data) {
   ## Table of Contents\n\n${contents}\n\n
   ## Installation \n\n${data.installation} \n\n
   ## Usage \n\n${data.usage} \n\n## License \n\n
-  ${license}\n\n## Contributing \n\n
+  ${license}\n\n## output \n\n
   ${data.output}\n\n## Tests \n\n${data.tests}\n\n
   ## Questions \n\nContact directly for more information:\n\nGitHub Username: ${username} \n\nEmail Address: [${data.email}](mailto:${data.email})`;
 }
