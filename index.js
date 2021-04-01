@@ -26,12 +26,7 @@ const questions =
       message: 'Instructions and examples for use: ',
       name: 'usage',
     },
-    {
-      type: 'list',
-      message: 'Select a license for application: ',
-      name: 'license',
-      choices: ['Apache 2.0', 'Cocoapods', 'GNU GPL v3', 'Eclipse Public License 1.0', 'MIT', 'Mozilla', 'Perl']
-    },
+   
     {
       type: 'input',
       message: 'Output link: ',
